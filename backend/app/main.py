@@ -27,7 +27,7 @@ async def lifespan(app: FastAPI):
         await ollama_client.close()
 
 
-app = FastAPI(title="SiteGist 摘頁 API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="SiteAtlas API", version="1.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

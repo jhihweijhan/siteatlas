@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "SiteGist 摘頁",
+  "name": "SiteAtlas",
   "version": "1.0.0",
-  "description": "本地 LLM 驅動的網頁摘要與問答助手",
+  "description": "本地 AI 驅動的網頁知識助手",
   "permissions": [
     "activeTab",
     "scripting",
@@ -19,7 +19,7 @@
     "default_path": "sidepanel/sidepanel.html"
   },
   "action": {
-    "default_title": "SiteGist 摘頁",
+    "default_title": "SiteAtlas",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
