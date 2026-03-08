@@ -1,0 +1,39 @@
+
+# Git worktrees
+.worktrees/
+
+# Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Node / frontend tooling
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local env / logs
+.env
+.env.*
+*.log
+
+# Accidental local scratch files
+backend/,*

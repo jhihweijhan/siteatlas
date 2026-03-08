@@ -1,0 +1,34 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      chromadb:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - LLM_MODEL=qwen2.5-coder:3b
+      - CHROMADB_HOST=chromadb
+      - CHROMADB_PORT=8000
+      - EMBEDDING_MODEL=hf.co/mixedbread-ai/mxbai-embed-large-v1:latest
+      - LOG_LEVEL=info
+    volumes:
+      - ./app:/app/app
+
+  chromadb:
+    image: chromadb/chroma:0.6.3
+    ports:
+      - "8100:8000"
+    volumes:
+      - chroma-data:/chroma/chroma
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v2/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  chroma-data:
